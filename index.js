@@ -1,0 +1,42 @@
+let row = 0;
+let col = 1;
+let currentColor = "white";
+let borderColor = "black";
+let color = false;
+
+
+//add functions below please -----------------------------------------------------
+
+function createGrid() {
+    let sqr = document.createElement("td");
+    sqr.classList.add("grid-cell");
+    sqr.classList.add("uncolored");
+    sqr.addEventListener("click", x => { // If the user clicks on a single square, the function will run and change the background of the cell to current color. If the cell is already colored it will change the color to current color.
+        sqr.style.backgroundColor = currentColor;
+        sqr.classList.remove("uncolored");
+    });
+    return sqr;
+}
+
+//Add rows to the grid
+function addRow() {
+    row++; //Row variable increments
+    let table = document.getElementById("grid");// Table is the div with id grid in index.html
+    let newRow = document.createElement("tr");// newRow is the table row list
+    newRow.classList.add("grid-row");// each newRow has a class name added grid-row
+    table.appendChild(newRow);// Appends the new element to the already existing row
+    for (let i = 0; i < col; i++) { // For every column available, the tr element will append a new square as its child. Ex. If col = 2. the new tr element created will append 2 squares as its child
+        newRow.appendChild(createGrid());
+    }
+
+}
+
+//Add columns to the grid
+function addColumn() {
+    col++; //column variable increments to allow add row to know how many columns are available
+    let table = document.getElementById("grid");// Sets DOM element with id grid to table
+    let newCol = document.getElementsByClassName("grid-row");// newCol is a nodeList of elements with class name grid-row
+    for (let i = 0; i < newCol.length; i++) { // For every grid-row element, they will append 1 cell to make a new column.
+        newCol[i].appendChild(createGrid());
+    }
+}
