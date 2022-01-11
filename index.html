@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 5: DOM Challenge III</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+
+<body>
+  <header>
+    <h1>Assignment 5: DOM Challenege III</h1>
+  </header>
+  
+    <div class="navbar">
+
+        <button style="margin: 2px" onclick="addRow()" class="btnAddRow">Add Row</button>
+        <button style="margin: 2px" onclick="deleteRow()" class="btnDeleteRow">Delete Row</button>
+        <button style="margin: 2px" onclick="addColumn()" class="btnAddCol">Add Column</button>
+        <button style="margin: 2px" onclick="deleteColumn()" class="btnDeleteColumn">Delete Column</button>
+
+
+          <div class="dropdown">
+            <button style="margin: 2px" id ="btn" class="btnColor">Color Picker</button>
+            <div class="dropdown-content">
+                <option value="red" id="red" onclick="pickRed()">Red</option>
+                <option value="blue" id="blue" onclick="pickBlue()">Blue</option>
+                <option value="green" id="green" onclick="pickGreen()">Green</option>
+
+            </div>
+          </div>
+        
+
+        <button style="margin: 2px" class="btnColor" id="btnFill" onclick="fillAll()">Fill All</button>
+        <button style="margin: 2px" class="btnColor2" id="btnFill2" onclick="fillRest()">Fill Rest</button>
+        <button style="margin: 2px" class="btnClear" onclick="clrAll()">Clear All</button>
+    </div>
+
+    <table id="grid" style="margin-top: 1px; margin-left: 1px; margin-right: 1px;"></table>
+
+</body>
+
+<script src="index.js"></script>
+
+</html>
+
