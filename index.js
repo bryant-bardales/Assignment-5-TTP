@@ -2,7 +2,7 @@ let row = 0;
 let col = 1;
 let currentColor = "white";
 let borderColor = "black";
-let color = false;
+let colorOver = false;
 
 
 //add functions below please -----------------------------------------------------
@@ -122,8 +122,8 @@ function clrAll() {//Clear all cells
 }
 
 
-function selectColor(color) {//Select a color from a dropdown menu of colors
-    currentColor = color;
+function selectColor(colorOver) {//Select a color from a dropdown menu of colors
+    currentColor = colorOver;
 }
 
 function pickRed() {//Set of function that changes the currentColor as well as the color of the button to let users know what the current color is
