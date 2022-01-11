@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function selectColor(color) {//Select a color from a dropdown menu of colors
     currentColor = color;
 }
@@ -20,11 +21,13 @@ function pickGreen() {
     element.style.backgroundColor = 'green';// Changes color of button to green. 
 }
 
+=======
+>>>>>>> 922c8512c9221e9c263d9d007eef8fbdbd0e47e9
 let row = 0;
 let col = 1;
 let currentColor = "white";
 let borderColor = "black";
-let color = false;
+let colorOver = false;
 
 
 //add functions below please -----------------------------------------------------
@@ -37,6 +40,20 @@ function createGrid() {
         sqr.style.backgroundColor = currentColor;
         sqr.classList.remove("uncolored");
     });
+    
+    sqr.addEventListener("mousedown", x => colorOver = true);
+    sqr.addEventListener("mousemove", x => {
+        if (colorOver) {
+            sqr.style.backgroundColor = currentColor;
+            sqr.classList.remove("uncolored");
+        }
+    });
+    sqr.addEventListener("mouseup", x => {
+        if (colorOver) {
+            colorOver = false;
+        }
+    })
+    
     return sqr;
 }
 
@@ -76,6 +93,22 @@ function deleteRow() {
     let finalRow = table.rows.length - 1;// Sets the lengh of the row - 1 for index uses
     table.deleteRow(finalRow);// The grid element deletes the last child
 }
+
+//Remove columns from the grid 1 by 1
+function deleteColumn() {
+    if (col === 1) { // if col === 1, while row !== 0, deleteRow() function is called
+        while (row > -1) {
+            deleteRow();
+        }
+    }
+    col -= 1;// decrements col
+    let table = document.getElementById("grid");// sets DOM element with the id of "grid" to table
+    let allCol = table.rows[0].cells.length - 1; // allCol is number of all td elements in each tr element - 1 for index uses.
+    for (let i = 0; i < table.rows.length; i++) { // for every tr element, remove the last child
+        table.rows[i].deleteCell(allCol);
+    }
+}
+
 //fill all uncolored cells with the currently selected color
 function fillRest() {
     let sqrs = document.getElementsByClassName("grid-cell");// cells is nodelist of all elements with class name grid-cell
@@ -112,3 +145,30 @@ function clrAll() {//Clear all cells
         sqr.classList.add("uncolored");
     });
 }
+<<<<<<< HEAD
+=======
+
+
+function selectColor(colorOver) {//Select a color from a dropdown menu of colors
+    currentColor = colorOver;
+}
+
+function pickRed() {//Set of function that changes the currentColor as well as the color of the button to let users know what the current color is
+    currentColor = "red";// Sets current color to red
+    let element = document.getElementById("btn");// Gets the element with id btn
+    element.style.backgroundColor = 'red';// Changes color of button to red
+}
+
+function pickBlue() { 
+    currentColor = "blue"// Sets current color to blue
+    let element = document.getElementById("btn");// Gets the element with id btn
+    element.style.backgroundColor = 'blue';// Changes color of button to blue
+}
+
+function pickGreen() { 
+    currentColor = "green"// Sets current color to green
+    let element = document.getElementById("btn");// Gets the element with id btn
+    element.style.backgroundColor = 'green';// Changes color of button to green. 
+}
+
+>>>>>>> 922c8512c9221e9c263d9d007eef8fbdbd0e47e9
