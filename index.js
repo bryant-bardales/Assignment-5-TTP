@@ -1,4 +1,4 @@
-let row = 0;
+et row = 0;
 let col = 1;
 let currentColor = "white";
 let borderColor = "black";
@@ -39,4 +39,18 @@ function addColumn() {
     for (let i = 0; i < newCol.length; i++) { // For every grid-row element, they will append 1 cell to make a new column.
         newCol[i].appendChild(createGrid());
     }
+}
+
+
+//Remove rows from the grid 1 by 1
+function deleteRow() {
+    if (row === 1) { // If the row value is 1, while the column is greater than -1 the deleteColumn function is called
+        while (col > -1) {
+            deleteColumn();
+        }
+    }
+    row -= 1;// decrements row
+    let table = document.getElementById("grid");// Sets the DOM element with id of "grid" to table
+    let finalRow = table.rows.length - 1;// Sets the lengh of the row - 1 for index uses
+    table.deleteRow(finalRow);// The grid element deletes the last child
 }
