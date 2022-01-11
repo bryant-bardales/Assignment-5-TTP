@@ -15,6 +15,20 @@ function createGrid() {
         sqr.style.backgroundColor = currentColor;
         sqr.classList.remove("uncolored");
     });
+    
+    sqr.addEventListener("mousedown", x => colorOver = true);
+    sqr.addEventListener("mousemove", x => {
+        if (colorOver) {
+            sqr.style.backgroundColor = currentColor;
+            sqr.classList.remove("uncolored");
+        }
+    });
+    sqr.addEventListener("mouseup", x => {
+        if (colorOver) {
+            colorOver = false;
+        }
+    })
+    
     return sqr;
 }
 
