@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-function selectColor(color) {//Select a color from a dropdown menu of colors
-    currentColor = color;
-}
-
-function pickRed() {//Set of function that changes the currentColor as well as the color of the button to let users know what the current color is
-    currentColor = "red";// Sets current color to red
-    let element = document.getElementById("btn");// Gets the element with id btn
-    element.style.backgroundColor = 'red';// Changes color of button to red
-}
-
-function pickBlue() { 
-    currentColor = "blue"// Sets current color to blue
-    let element = document.getElementById("btn");// Gets the element with id btn
-    element.style.backgroundColor = 'blue';// Changes color of button to blue
-}
-
-function pickGreen() { 
-    currentColor = "green"// Sets current color to green
-    let element = document.getElementById("btn");// Gets the element with id btn
-    element.style.backgroundColor = 'green';// Changes color of button to green. 
-}
-
-=======
->>>>>>> 922c8512c9221e9c263d9d007eef8fbdbd0e47e9
 let row = 0;
 let col = 1;
 let currentColor = "white";
@@ -145,8 +120,6 @@ function clrAll() {//Clear all cells
         sqr.classList.add("uncolored");
     });
 }
-<<<<<<< HEAD
-=======
 
 
 function selectColor(colorOver) {//Select a color from a dropdown menu of colors
@@ -171,4 +144,3 @@ function pickGreen() {
     element.style.backgroundColor = 'green';// Changes color of button to green. 
 }
 
->>>>>>> 922c8512c9221e9c263d9d007eef8fbdbd0e47e9
