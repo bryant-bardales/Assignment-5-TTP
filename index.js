@@ -54,6 +54,22 @@ function deleteRow() {
     let finalRow = table.rows.length - 1;// Sets the lengh of the row - 1 for index uses
     table.deleteRow(finalRow);// The grid element deletes the last child
 }
+
+//Remove columns from the grid 1 by 1
+function deleteColumn() {
+    if (col === 1) { // if col === 1, while row !== 0, deleteRow() function is called
+        while (row > -1) {
+            deleteRow();
+        }
+    }
+    col -= 1;// decrements col
+    let table = document.getElementById("grid");// sets DOM element with the id of "grid" to table
+    let allCol = table.rows[0].cells.length - 1; // allCol is number of all td elements in each tr element - 1 for index uses.
+    for (let i = 0; i < table.rows.length; i++) { // for every tr element, remove the last child
+        table.rows[i].deleteCell(allCol);
+    }
+}
+
 //fill all uncolored cells with the currently selected color
 function fillRest() {
     let sqrs = document.getElementsByClassName("grid-cell");// cells is nodelist of all elements with class name grid-cell
